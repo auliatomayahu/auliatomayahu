@@ -10,6 +10,7 @@ class UserRequest {
 	protected static $rules = [
 		'name' => 'string',
 		'email' => 'string',
+		'dob' => 'string',
 	];
 
 	public static function validate($data) {
@@ -23,10 +24,12 @@ class UserRequest {
 class User {
 	public $name;
 	public $email;
+	public $dob;
 
 	public function __construct($data){
 		$this->name = $data['name'];
 		$this->email = $data['email'];
+		$this->dob = $data['dob'];
 	}
 }
 
@@ -39,3 +42,5 @@ Route::get('/', function() {
 
 	return Json::from($data);
 });
+
+?>
